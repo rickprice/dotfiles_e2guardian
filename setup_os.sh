@@ -42,10 +42,10 @@ sudo pacman --noconfirm -S npm
 sudo npm install -g neovim
 sudo pacman --noconfirm -S ruby
 gem install neovim
-sudo pacman --noconfirm -S perl
-yay --noconfirm -S cpanminus
-sudo cpanm Neovim::Ext
-cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+# sudo pacman --noconfirm -S perl
+# yay --noconfirm -S cpanminus
+# sudo cpanm Neovim::Ext
+# cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 # Can't use noconfirm with this because it defaults to N to delete vi and Vim
 # yay --noconfirm -S neovim-symlinks
 
