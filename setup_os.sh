@@ -26,11 +26,11 @@ yay --noconfirm -Syu
 ## Install AUR packages I want
 yay --noconfirm -S neovim-nightly-bin
 yay --noconfirm -S google-chrome
-yay --noconfirm -S discord
-yay --noconfirm -S slack-desktop
-yay --noconfirm -S poppler
-yay --noconfirm -S pdfjam
-yay --noconfirm -S glogg
+# yay --noconfirm -S discord
+# yay --noconfirm -S slack-desktop
+# yay --noconfirm -S poppler
+# yay --noconfirm -S pdfjam
+# yay --noconfirm -S glogg
 
 ## Required for initial_setup.py
 sudo pip install PyYAML
@@ -59,22 +59,22 @@ cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mloca
 
 chsh -s $(which zsh)
 
-## Needed for Brother MFC-L2700DW
-PRINTER_IP="192.168.0.194"
-### Setup Brother scanner
-yay --noconfirm -S brother-mfc-l2710dw
-yay --noconfirm -S brscan4
-sudo pacman --noconfirm -S simple-scan
-sudo brsaneconfig4 -a name=BROTHER model=MFC-L2700DW ip="$PRINTER_IP"
-# Seems you can also do this:
-# brsaneconfig4 -a name=BROTHER model=MFC-L2700DW nodename=BRWD85DE244E1EB
+# ## Needed for Brother MFC-L2700DW
+# PRINTER_IP="192.168.0.194"
+# ### Setup Brother scanner
+# yay --noconfirm -S brother-mfc-l2710dw
+# yay --noconfirm -S brscan4
+# sudo pacman --noconfirm -S simple-scan
+# sudo brsaneconfig4 -a name=BROTHER model=MFC-L2700DW ip="$PRINTER_IP"
+# # Seems you can also do this:
+# # brsaneconfig4 -a name=BROTHER model=MFC-L2700DW nodename=BRWD85DE244E1EB
 
-### Setup Brother Printer
-sudo pacman --noconfirm -S cups manjaro-printer
-sudo systemctl enable cups.service
-sudo systemctl start cups.service
-sudo pacman --noconfirm -S cups system-config-printer
-lpadmin -p MFC-L2700DW -E -v "ipp://$PRINTER_IP/ipp/print" -m everywhere
+# ### Setup Brother Printer
+# sudo pacman --noconfirm -S cups manjaro-printer
+# sudo systemctl enable cups.service
+# sudo systemctl start cups.service
+# sudo pacman --noconfirm -S cups system-config-printer
+# lpadmin -p MFC-L2700DW -E -v "ipp://$PRINTER_IP/ipp/print" -m everywhere
 
 ## X11 stuff
 sudo pacman --noconfirm -S xcape
@@ -102,7 +102,7 @@ yay --noconfirm -S alacritty
 yay --noconfirm -S ttf-iosevka
 
 ## Keypass
-yay --noconfirm -S keepassxc
+# yay --noconfirm -S keepassxc
 
 ## Wallpaper
 nitrogen --set-scaled ./wallpaper/wallpaper.jpg
