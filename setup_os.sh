@@ -6,7 +6,7 @@ set -e
 ## keep track of the last executed command
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 ## echo an error message before exiting
-trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
+trap 'echo "\"${last_command}\" command failed with exit code $?."' EXIT
 
 # Setup Packages for Arch
 
@@ -86,7 +86,7 @@ sudo pacman --noconfirm -S xcape
 
 ## Docker
 yay --noconfirm -S docker
-sudo groupadd docker
+sudo groupadd --force docker  # Force to avoid errors when group exists already
 sudo usermod -aG docker $USER
 sudo systemctl enable docker.service
 sudo systemctl start docker.service
@@ -108,3 +108,8 @@ yay --noconfirm -S ttf-iosevka
 
 ## Keypass
 # yay --noconfirm -S keepassxc
+
+## E2guardian
+yay --noconfirm -S e2guardian
+sudo systemctl enable e2guardian.service
+sudo systemctl start e2guardian.service
