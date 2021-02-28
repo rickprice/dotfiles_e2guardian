@@ -54,4 +54,4 @@ ln -sf ~/.config/nvim/init.vim ~/.vimrc
 
 # Setup enviroment for proxy
 sudo rm -f /etc/environment
-sudo ln -sf ./etc/enviroment /etc/environment
+sudo ln -sf $HOME/.dotfiles/etc/enviroment /etc/environment
