@@ -53,5 +53,5 @@ ln -sf ~/.config/nvim/init.vim ~/.vimrc
 # gvim +PluginInstall +qall
 
 # Setup enviroment for proxy
-sudo -f rm /etc/environment
+sudo rm -f /etc/environment
 sudo ln -sf ./etc/enviroment /etc/environment
