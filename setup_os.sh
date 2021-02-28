@@ -108,7 +108,3 @@ yay --noconfirm -S ttf-iosevka
 
 ## Keypass
 # yay --noconfirm -S keepassxc
-
-## Wallpaper
-nitrogen --set-scaled ./wallpaper/wallpaper.jpg
-
