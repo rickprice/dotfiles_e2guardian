@@ -112,3 +112,7 @@ yay --noconfirm -S ttf-iosevka
 ## Wallpaper
 nitrogen --set-scaled ./wallpaper/wallpaper.jpg
 
+## E2guardian
+yay --noconfirm -S e2guardian
+sudo systemctl enable e2guardian.service
+sudo systemctl start e2guardian.service
