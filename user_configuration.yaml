@@ -21,12 +21,33 @@ activestate:
   user: rickp - Your user for the ActiveState platform
   code_signing_password: Windows Code Signing Password
   code_signing_cert: "Windows code signing cert (quoted/multi-line)"
+ensure_directories_exist:
+  - ~/Documents/ActiveState/DockerMount
+  - ~/Documents/ActiveState/CommandScriptLogs
+  - ~/Documents/ActiveState/ConfigurationBackups
+check_for_software:
+  git:
+    version: 2.24.3
+    regex: ^curl (\S*).*
+    failure_message: Need to install git
+  git-lfs:
+    version: 2.9.2
+    regex: ^git-lfs/(\S*)
+    failure_message: Need to install git-lfs
+  pipenv:
+    version: 11.9.0
+    regex: ^pipenv, version (\S*)
+    failure_message: Need to install pipenv
 git_repositories:
   camel:
-    url: thisisagiturl
-    location: wheretoputit
+    url: git@github.com:ActiveState/camel.git
+    location: ~/Documents/ActiveState/camel
     lfs: false
   theHomeRepot:
-    url: thisisagiturl
-    location: wheretoputit
+    url: git@github.com:ActiveState/TheHomeRepot.git
+    location: ~/Documents/ActiveState/TheHomeRepot
+    lfs: false
+  langtools:
+    url: git@github.com:ActiveState/langtools.git
+    location: ~/Documents/ActiveState/langtools
     lfs: false
