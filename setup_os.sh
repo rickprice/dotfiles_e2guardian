@@ -110,6 +110,14 @@ yay --noconfirm -S ttf-iosevka
 # yay --noconfirm -S keepassxc
 
 ## E2guardian
+# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
+sudo rm -rf /etc/e2guardian
+# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
+# Put our e2guardian configuration in place
+sudo ln -f ~/etc/e2guardian /etc/e2guardian
+
+sudo useradd --system e2guardian
+
 yay --noconfirm -S e2guardian
 sudo systemctl enable e2guardian.service
 sudo systemctl start e2guardian.service
@@ -120,11 +128,11 @@ e2generatedcerts=/etc/e2guardian/generatedcerts
 sudo mkdir -p $e2MITMkeys
 sudo mkdir -p $e2generatedcerts
 #### Generate a key for the rootCA
-openssl genrsa 4096 > $e2MITMkeys/private_root.pem
+sudo openssl genrsa 4096 > $e2MITMkeys/private_root.pem
 #### Generate the root CA certificate
-openssl req -new -x509 -days 3650 -key $e2MITMkeys/private_root.pem -out $e2MITMkeys/my_rootCA.crt
+sudo openssl req -new -x509 -days 3650 -key $e2MITMkeys/private_root.pem -out $e2MITMkeys/my_rootCA.crt
 #### Create a DER format version of root certificate
-openssl x509 -in $e2MITMkeys/my_rootCA.crt -outform DER -out $e2MITMkeys/my_rootCA.der
+sudo openssl x509 -in $e2MITMkeys/my_rootCA.crt -outform DER -out $e2MITMkeys/my_rootCA.der
 #### Generate a key for use with upstream SSL conections
-openssl genrsa 4096 > $e2MITMkeys/private_cert.pem
+sudo openssl genrsa 4096 > $e2MITMkeys/private_cert.pem
 
