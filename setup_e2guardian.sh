@@ -28,7 +28,7 @@ sudo chown e2guardian:e2guardian $e2MITMkeys
 sudo chown e2guardian:e2guardian $e2generatedcerts
 
 #### Generate a key for the rootCA
-sudo openssl genrsa 4096 > $e2MITMkeys/private_root.pem
+sudo openssl genrsa 4096 >$e2MITMkeys/private_root.pem
 #### Generate the root CA certificate
 sudo openssl req -new -x509 -days 3650 -key $e2MITMkeys/private_root.pem -out $e2MITMkeys/my_rootCA.crt
 #### Create a DER format version of root certificate
