@@ -4,15 +4,6 @@ IFS=$'\n\t'
 
 
 ## E2guardian
-# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
-if [[ -d /etc/e2guardian ]]
-then
-    sudo rm -rf /etc/e2guardian
-fi
-# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
-# Put our e2guardian configuration in place
-sudo ln -sf ~/.dotfiles/etc/e2guardian /etc/e2guardian
-
 if id e2guardian &>/dev/null; then
     echo 'user e2guardian already exists'
 else
@@ -22,6 +13,15 @@ fi
 yay --noconfirm -S e2guardian
 
 sudo systemctl stop e2guardian.service
+
+# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
+if [[ -d /etc/e2guardian ]]
+then
+    sudo rm -rf /etc/e2guardian
+fi
+# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
+# Put our e2guardian configuration in place
+sudo ln -sf ~/.dotfiles/etc/e2guardian /etc/e2guardian
 
 ### Certificate setup
 e2MITMkeys=~/.dotfiles/etc/e2guardian/private
