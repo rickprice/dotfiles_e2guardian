@@ -85,22 +85,22 @@ chsh -s $(which zsh)
 sudo pacman --noconfirm -S xcape
 
 ## Docker
-yay --noconfirm -S docker
-sudo groupadd --force docker  # Force to avoid errors when group exists already
-sudo usermod -aG docker $USER
-sudo systemctl enable docker.service
-sudo systemctl start docker.service
+# yay --noconfirm -S docker
+# sudo groupadd --force docker  # Force to avoid errors when group exists already
+# sudo usermod -aG docker $USER
+# sudo systemctl enable docker.service
+# sudo systemctl start docker.service
 
 # VirtualBox
 # Not configured yet, but this is a link that seems good:
 # https://www.linuxtechi.com/install-virtualbox-on-arch-linux/
 
 ## Rust
-sudo pacman --noconfirm -S rustup
-rustup toolchain install stable
-rustup default stable
-rustup component add rustfmt
-rustup component add rls
+# sudo pacman --noconfirm -S rustup
+# rustup toolchain install stable
+# rustup default stable
+# rustup component add rustfmt
+# rustup component add rls
 
 ## Alacritty
 yay --noconfirm -S alacritty
