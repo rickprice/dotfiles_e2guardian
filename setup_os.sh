@@ -52,7 +52,7 @@ gem install neovim
 # sudo cpanm Neovim::Ext
 # cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 # Can't use noconfirm with this because it defaults to N to delete vi and Vim
-# yay --noconfirm -S neovim-symlinks
+yes | LC_ALL=en_US.UTF-8 yay -S neovim-symlinks
 
 ## Setup ZSH for humans
 # ZSH for Humans already setup, so reuse config
@@ -85,22 +85,22 @@ chsh -s $(which zsh)
 sudo pacman --noconfirm -S xcape
 
 ## Docker
-yay --noconfirm -S docker
-sudo groupadd --force docker  # Force to avoid errors when group exists already
-sudo usermod -aG docker $USER
-sudo systemctl enable docker.service
-sudo systemctl start docker.service
+# yay --noconfirm -S docker
+# sudo groupadd --force docker  # Force to avoid errors when group exists already
+# sudo usermod -aG docker $USER
+# sudo systemctl enable docker.service
+# sudo systemctl start docker.service
 
 # VirtualBox
 # Not configured yet, but this is a link that seems good:
 # https://www.linuxtechi.com/install-virtualbox-on-arch-linux/
 
 ## Rust
-sudo pacman --noconfirm -S rustup
-rustup toolchain install stable
-rustup default stable
-rustup component add rustfmt
-rustup component add rls
+# sudo pacman --noconfirm -S rustup
+# rustup toolchain install stable
+# rustup default stable
+# rustup component add rustfmt
+# rustup component add rls
 
 ## Alacritty
 yay --noconfirm -S alacritty
@@ -109,22 +109,4 @@ yay --noconfirm -S ttf-iosevka
 ## Keypass
 # yay --noconfirm -S keepassxc
 
-## E2guardian
-yay --noconfirm -S e2guardian
-sudo systemctl enable e2guardian.service
-sudo systemctl start e2guardian.service
-
-### Certificate setup
-e2MITMkeys=/etc/e2guardian/private
-e2generatedcerts=/etc/e2guardian/generatedcerts
-sudo mkdir -p $e2MITMkeys
-sudo mkdir -p $e2generatedcerts
-#### Generate a key for the rootCA
-openssl genrsa 4096 > $e2MITMkeys/private_root.pem
-#### Generate the root CA certificate
-openssl req -new -x509 -days 3650 -key $e2MITMkeys/private_root.pem -out $e2MITMkeys/my_rootCA.crt
-#### Create a DER format version of root certificate
-openssl x509 -in $e2MITMkeys/my_rootCA.crt -outform DER -out $e2MITMkeys/my_rootCA.der
-#### Generate a key for use with upstream SSL conections
-openssl genrsa 4096 > $e2MITMkeys/private_cert.pem
-
+source setup_e2guardian.sh
