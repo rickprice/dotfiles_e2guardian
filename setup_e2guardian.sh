@@ -11,7 +11,7 @@ then
 fi
 # +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
 # Put our e2guardian configuration in place
-sudo ln -f ~/etc/e2guardian /etc/e2guardian
+sudo ln -f ~/.dotfiles/etc/e2guardian /etc/e2guardian
 
 sudo useradd --system e2guardian
 
