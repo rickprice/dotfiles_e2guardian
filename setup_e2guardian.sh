@@ -6,6 +6,7 @@ IFS=$'\n\t'
 ## E2guardian
 # +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
 if [[ -d /etc/e2guardian ]]
+then
     sudo rm -rf /etc/e2guardian
 fi
 # +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
