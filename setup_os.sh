@@ -52,7 +52,7 @@ gem install neovim
 # sudo cpanm Neovim::Ext
 # cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 # Can't use noconfirm with this because it defaults to N to delete vi and Vim
-# yay --noconfirm -S neovim-symlinks
+yes | LC_ALL=en_US.UTF-8 yay -S neovim-symlinks
 
 ## Setup ZSH for humans
 # ZSH for Humans already setup, so reuse config
