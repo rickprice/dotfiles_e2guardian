@@ -28,8 +28,7 @@ e2MITMkeys=~/.dotfiles/etc/e2guardian/private
 e2generatedcerts=~/.dotfiles/etc/e2guardian/private/generatedcerts
 sudo mkdir -p $e2MITMkeys
 sudo mkdir -p $e2generatedcerts
-sudo chown e2guardian:e2guardian $e2MITMkeys
-sudo chown e2guardian:e2guardian $e2generatedcerts
+sudo chown -R e2guardian:e2guardian ~/.dotfiles/etc/e2guardian
 
 #### Generate a key for the rootCA
 sudo openssl genrsa -out $e2MITMkeys/private_root.pem 4096 
