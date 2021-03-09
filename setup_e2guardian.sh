@@ -13,7 +13,11 @@ fi
 # Put our e2guardian configuration in place
 sudo ln -sf ~/.dotfiles/etc/e2guardian /etc/e2guardian
 
-sudo useradd --system e2guardian
+if id e2guardian &>/dev/null; then
+    echo 'user e2guardian already exists'
+else
+    sudo useradd --system e2guardian
+fi
 
 yay --noconfirm -S e2guardian
 
@@ -28,7 +32,7 @@ sudo chown e2guardian:e2guardian $e2MITMkeys
 sudo chown e2guardian:e2guardian $e2generatedcerts
 
 #### Generate a key for the rootCA
-sudo openssl genrsa 4096 -out $e2MITMkeys/private_root.pem
+sudo openssl genrsa -out $e2MITMkeys/private_root.pem 4096 
 #### Generate the root CA certificate
 sudo openssl req -new -x509 -days 3650 -key $e2MITMkeys/private_root.pem -out $e2MITMkeys/my_rootCA.crt
 #### Create a DER format version of root certificate
