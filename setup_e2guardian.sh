@@ -38,7 +38,6 @@ sudo openssl req -new -x509 -days 3650 -key $e2MITMkeys/private_root.pem -out $e
 #### Create a DER format version of root certificate
 sudo openssl x509 -in $e2MITMkeys/my_rootCA.crt -outform DER -out $e2MITMkeys/my_rootCA.der
 #### Generate a key for use with upstream SSL conections
-sudo openssl genrsa 4096 > $e2MITMkeys/private_cert.pem
-
+sudo openssl genrsa -out $e2MITMkeys/private_cert.pem 4096
 sudo systemctl enable e2guardian.service
 sudo systemctl start e2guardian.service
