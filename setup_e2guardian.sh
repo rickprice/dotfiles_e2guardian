@@ -20,8 +20,8 @@ yay --noconfirm -S e2guardian
 sudo systemctl stop e2guardian.service
 
 ### Certificate setup
-e2MITMkeys=~/dotfiles/etc/e2guardian/private
-e2generatedcerts=~/dotfiles/etc/e2guardian/private/generatedcerts
+e2MITMkeys=~/.dotfiles/etc/e2guardian/private
+e2generatedcerts=~/.dotfiles/etc/e2guardian/private/generatedcerts
 sudo mkdir -p $e2MITMkeys
 sudo mkdir -p $e2generatedcerts
 sudo chown e2guardian:e2guardian $e2MITMkeys
