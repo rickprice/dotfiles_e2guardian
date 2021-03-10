@@ -14,11 +14,6 @@ yay --noconfirm -S e2guardian
 
 sudo systemctl stop e2guardian.service
 
-# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
-# Put our e2guardian configuration in place
-sudo cp -Rp ~/.dotfiles/etc/e2guardian /etc/e2guardian
-# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
-
 ### Certificate setup
 e2MITMkeys=~/.dotfiles/etc/e2guardian/private
 e2generatedcerts=~/.dotfiles/etc/e2guardian/private/generatedcerts
@@ -41,3 +36,8 @@ sudo systemctl start e2guardian.service
 # Setup enviroment for proxy
 sudo rm -f /etc/environment
 sudo ln -sf $HOME/.dotfiles/etc/environment /etc/environment
+
+# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
+# Put our e2guardian configuration in place
+sudo cp -Rp ~/.dotfiles/etc/e2guardian/* /etc/e2guardian
+# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
