@@ -5,6 +5,11 @@
 #   left is the site matching pattern
 #   right is the search words
 
+"^https://[0-9a-z]+\.google\.[a-z]+[-/%.0-9a-z]*\?q=([^&]*)\&.*"->"\1"
+"^https://[0-9a-z]+\.google\.[a-z]+[-/%.0-9a-z]*/.*\&q=([^&]*).*"->"\1"
+"^https://[0-9a-z]+\.google\.[a-z]+[-/%.0-9a-z]*\?q=([^&]*)"->"\1"
+"^https://[0-9a-z]+\.google\.[a-z]+[-/%.0-9a-z]*/.*\&q=([^&]*)"->"\1"
+
 "^http://[0-9a-z]+\.google\.[a-z]+[-/%.0-9a-z]*\?q=([^&]*)\&.*"->"\1"
 "^http://[0-9a-z]+\.google\.[a-z]+[-/%.0-9a-z]*/.*\&q=([^&]*).*"->"\1"
 "^http://[0-9a-z]+\.google\.[a-z]+[-/%.0-9a-z]*\?q=([^&]*)"->"\1"
@@ -25,6 +30,7 @@
 "^http://duckduckgo.com/.*\&q=([^&]*)"->"\1"
 
 "^http://[0-9a-z]+\.youtube\.[a-z]+[-/%.0-9a-z]*\?search_query=([^&]*).*"->"\1"
+"^https://[0-9a-z]+\.youtube\.[a-z]+[-/%.0-9a-z]*\?search_query=([^&]*).*"->"\1"
 
 "^http://[0-9a-z]+\.yahoo\.[a-z]+[-/%.0-9a-z]*/search[^?]*\?p=([^&]*).*"->"\1"
 "^http://[0-9a-z]+\.yahoo\.[a-z]+[-/%.0-9a-z]*/search[^?]*.*\&p=([^&]*).*"->"\1"
