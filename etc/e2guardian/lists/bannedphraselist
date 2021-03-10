@@ -53,5 +53,6 @@
 
 #.Include</etc/e2guardian/lists/phraselists/googlesearches/banned>
 
+.Include</etc/e2guardian/lists/phraselists/EricMacDonald/bannedphraselist>
 
 
