@@ -26,6 +26,8 @@ sudo chown -R e2guardian:e2guardian /var/log/e2guardian
 sudo openssl genrsa -out $e2MITMkeys/private_root.pem 4096 
 #### Generate the root CA certificate
 sudo openssl req -new -x509 -days 3650 -key $e2MITMkeys/private_root.pem -out $e2MITMkeys/my_rootCA.crt
+#### Trust the certificate we generated
+sudo trust anchor $e2MITMkeys/my_rootCA.crt
 #### Create a DER format version of root certificate
 sudo openssl x509 -in $e2MITMkeys/my_rootCA.crt -outform DER -out $e2MITMkeys/my_rootCA.der
 #### Generate a key for use with upstream SSL conections
