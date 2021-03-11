@@ -37,11 +37,11 @@ sudo chown -R e2guardian:e2guardian /var/log/e2guardian
     sudo openssl genrsa -out $e2MITMkeys/private_cert.pem 4096
   fi
 
-sudo systemctl enable e2guardian.service
-sudo systemctl start e2guardian.service
-
 # Setup enviroment for proxy
 sudo cp etc/environment /etc/environment
+
+sudo systemctl enable e2guardian.service
+sudo systemctl start e2guardian.service
 
 # +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
 # Put our e2guardian configuration in place
