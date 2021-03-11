@@ -25,7 +25,6 @@ sudo chown -R e2guardian:e2guardian /var/log/e2guardian
 # If MITM root key does not exist, then create new keys
  if [[ ! -f $e2MITMkeys/private_root.pem ]]
   then
-    echo "The file ${FILE} does not exist!"
     #### Generate a key for the rootCA
     sudo openssl genrsa -out $e2MITMkeys/private_root.pem 4096 
     #### Generate the root CA certificate
