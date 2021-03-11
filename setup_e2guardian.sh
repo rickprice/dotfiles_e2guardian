@@ -14,13 +14,20 @@ yay --noconfirm -S e2guardian
 
 sudo systemctl stop e2guardian.service
 
+
+# Setup enviroment for proxy
+sudo cp etc/environment /etc/environment
+
+# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
+# Put our e2guardian configuration in place
+sudo cp -Rp etc/e2guardian/* /etc/e2guardian
+# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
+
 ### Certificate setup
-e2MITMkeys=~/.dotfiles/etc/e2guardian/private
-e2generatedcerts=~/.dotfiles/etc/e2guardian/private/generatedcerts
+e2MITMkeys=/etc/e2guardian/private
+e2generatedcerts=/etc/e2guardian/private/generatedcerts
 sudo mkdir -p $e2MITMkeys
 sudo mkdir -p $e2generatedcerts
-sudo chown -R e2guardian:e2guardian /etc/e2guardian
-sudo chown -R e2guardian:e2guardian /var/log/e2guardian
 
 # If MITM root key does not exist, then create new keys
  if [[ ! -f $e2MITMkeys/private_root.pem ]]
@@ -37,13 +44,8 @@ sudo chown -R e2guardian:e2guardian /var/log/e2guardian
     sudo openssl genrsa -out $e2MITMkeys/private_cert.pem 4096
   fi
 
-# Setup enviroment for proxy
-sudo cp etc/environment /etc/environment
-
-# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
-# Put our e2guardian configuration in place
-sudo cp -Rp etc/e2guardian/* /etc/e2guardian
-# +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
+sudo chown -R e2guardian:e2guardian /etc/e2guardian
+sudo chown -R e2guardian:e2guardian /var/log/e2guardian
 
 sudo systemctl enable e2guardian.service
 sudo systemctl start e2guardian.service
