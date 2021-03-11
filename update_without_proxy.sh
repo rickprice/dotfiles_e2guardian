@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-#@ Remove proxy settings for the moment
+# Remove proxy settings for the moment
 unset http_proxy
 unset https_proxy
 unset all_proxy

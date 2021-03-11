@@ -2,6 +2,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# Remove proxy settings for the moment
+unset http_proxy
+unset https_proxy
+unset all_proxy
 
 ## E2guardian
 if id e2guardian &>/dev/null; then
