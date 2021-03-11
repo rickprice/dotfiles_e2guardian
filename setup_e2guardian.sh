@@ -48,3 +48,5 @@ sudo cp etc/environment /etc/environment
 # Put our e2guardian configuration in place
 sudo cp -Rp etc/e2guardian/* /etc/e2guardian
 # +++ NOTICE +++ Wipe out existing e2guardian configuration!!!
+
+cp wallpaper/* ~/.dotfiles/wallpaper/.
