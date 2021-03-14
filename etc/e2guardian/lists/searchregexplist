@@ -17,6 +17,7 @@
 
 # New Google search test
 "^http://www.google\.[a-z]+/.*\?oq=([^&]*)"->"\1"
+"^http://www.google\.[a-z]+/.*\?q=([^&]*)"->"\1"
 # New Google search test
 
 "^http://www\.qwant\.com/.*\?q=([^&]*)\&.*"->"\1"
